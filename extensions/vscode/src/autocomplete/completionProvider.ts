@@ -38,19 +38,19 @@ export class ContinueCompletionProvider
     if (await handleLLMError(e)) {
       return;
     }
-    let message = "Continue Autocomplete Error";
-    if (e instanceof Error) {
-      message += `: ${e.message}`;
-    }
-    vscode.window.showErrorMessage(message, "Documentation").then((val) => {
-      if (val === "Documentation") {
-        vscode.env.openExternal(
-          vscode.Uri.parse(
-            "https://docs.continue.dev/features/tab-autocomplete",
-          ),
-        );
-      }
-    });
+    // let message = "Continue Autocomplete Error";
+    // if (e instanceof Error) {
+    //   message += `: ${e.message}`;
+    // }
+    // vscode.window.showErrorMessage(message, "Documentation").then((val) => {
+    //   if (val === "Documentation") {
+    //     vscode.env.openExternal(
+    //       vscode.Uri.parse(
+    //         "https://docs.continue.dev/features/tab-autocomplete",
+    //       ),
+    //     );
+    //   }
+    // });
   }
 
   private completionProvider: CompletionProvider;
