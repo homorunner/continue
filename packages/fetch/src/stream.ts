@@ -94,7 +94,8 @@ export function parseDataLine(line: string): any {
       throw e;
     }
     // Otherwise it's a JSON parsing error
-    throw new Error(`Malformed JSON sent from server: ${json}`);
+    // throw new Error(`Malformed JSON sent from server: ${json}`);
+    return null;
   }
 }
 
@@ -151,7 +152,8 @@ export async function* streamJSON(response: Response): AsyncGenerator<any> {
         const data = JSON.parse(line);
         yield data;
       } catch (e) {
-        throw new Error(`Malformed JSON sent from server: ${line}`);
+        // throw new Error(`Malformed JSON sent from server: ${line}`);
+        return null;
       }
       buffer = buffer.slice(position + 1);
     }

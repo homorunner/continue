@@ -53,7 +53,8 @@ function parseDataLine(line: string): any {
 
     return data;
   } catch (e) {
-    throw new Error(`Malformed JSON sent from server: ${json}`);
+    // throw new Error(`Malformed JSON sent from server: ${json}`);
+    return null;
   }
 }
 
